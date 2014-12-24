@@ -38,9 +38,14 @@ int fbdev = -1;
 #define COLOURDEPTH_DEPTH_SIZE		16
 
 #ifdef GLES1
-static const EGLint g_configAttribs[] =	{	EGL_RED_SIZE,     5,
+static const EGLint g_configAttribs[] =	{
+/* Config attributes are broken on the N900.       *
+ * See https://bugs.maemo.org/show_bug.cgi?id=9335 */
+#ifndef N900
+											EGL_RED_SIZE,     5,
 											EGL_GREEN_SIZE,   6,
 											EGL_BLUE_SIZE,    5,
+#endif
 											EGL_DEPTH_SIZE,       16,
 											EGL_SURFACE_TYPE,         EGL_WINDOW_BIT,
 											EGL_RENDERABLE_TYPE,      EGL_OPENGL_ES_BIT,
