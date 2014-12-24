@@ -705,7 +705,11 @@ static int KeySymToKey(int keysym)
 		case SDLK_BACKSPACE:
 			return KEY_BACKSPACE;
 		case SDLK_COMMA:
+#ifdef N900
+			return KEY_ESCAPE;
+#else
 			return KEY_COMMA;
+#endif
 		case SDLK_PERIOD:
 			return KEY_FSTOP;
 		case SDLK_SPACE:
@@ -758,7 +762,11 @@ static int KeySymToKey(int keysym)
 		case SDLK_KP_PERIOD:
 			return KEY_NUMPADDEL;
 		case SDLK_KP_ENTER:
+#ifdef N900
+			return KEY_CR;
+#else
 			return KEY_NUMPADENTER;
+#endif
 		case SDLK_KP_DIVIDE:
 			return KEY_NUMPADDIVIDE;
 		case SDLK_KP_MULTIPLY:
